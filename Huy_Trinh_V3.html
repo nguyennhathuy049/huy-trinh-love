@@ -1,0 +1,278 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huy ❤️ Trinh</title>
+
+<style>
+
+body{
+margin:0;
+padding:20px;
+font-family:Arial;
+background:linear-gradient(135deg,#ffd6e7,#fff0f5);
+}
+
+.box{
+max-width:700px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:25px;
+box-shadow:0 0 20px rgba(0,0,0,.15);
+}
+
+.cover{
+width:100%;
+border-radius:20px;
+margin-bottom:15px;
+}
+
+h1{
+text-align:center;
+color:#ff4f81;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:12px;
+border:1px solid #ddd;
+box-sizing:border-box;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+background:#ff4f81;
+color:white;
+font-size:18px;
+cursor:pointer;
+margin-top:10px;
+}
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.7);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.popup-box{
+background:white;
+width:90%;
+max-width:500px;
+padding:25px;
+border-radius:20px;
+text-align:center;
+}
+
+.heart{
+position:fixed;
+font-size:25px;
+animation:bay 3s linear forwards;
+}
+
+@keyframes bay{
+to{
+transform:translateY(-700px);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="yeu.mp3" type="audio/mpeg">
+</audio>
+
+<div class="box">
+
+<img src="anh.jpg" class="cover">
+
+<h1>💖 Hẹn Hò Cùng Huy 💖</h1>
+
+<input id="ten" placeholder="Tên của em">
+
+<input type="date" id="ngay">
+
+<input type="time" id="gio">
+
+<select id="an">
+<option>🍗 Jollibee</option>
+<option>🥩 Bít Tết</option>
+<option>🍕 Pizza</option>
+<option>🍔 Burger</option>
+<option>🍣 Sushi</option>
+<option>☕ Cafe</option>
+<option>🎬 Xem phim</option>
+</select>
+
+<textarea id="tn" rows="5"
+placeholder="Nhắn gì đó cho Huy ❤️"></textarea>
+
+<button onclick="gui()">
+❤️ Gửi Cho Huy ❤️
+</button>
+
+</div>
+
+<div id="popup" class="popup">
+<div class="popup-box">
+<div id="popupContent"></div>
+</div>
+</div>
+
+<script>
+
+function timBay(){
+
+for(let i=0;i<60;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+let icons=["❤️","💖","💕","💗"];
+
+heart.innerHTML=
+icons[Math.floor(Math.random()*icons.length)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.top="100vh";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},3000);
+
+}
+
+}
+
+function gui(){
+
+document.getElementById("music").play();
+
+timBay();
+
+let ngay=document.getElementById("ngay").value;
+
+let gio=document.getElementById("gio").value;
+
+let an=document.getElementById("an").value;
+
+let tn=document.getElementById("tn").value;
+
+document.getElementById("popup").style.display="flex";
+
+document.getElementById("popupContent").innerHTML=`
+
+<h2>💖 CẢM ƠN EM 💖</h2>
+
+<p>📅 ${ngay}</p>
+
+<p>⏰ ${gio}</p>
+
+<p>🍽️ ${an}</p>
+
+<p>💌 "${tn}"</p>
+
+<hr>
+
+<p>
+Cảm ơn em đã dành thời gian
+điền chiếc thiệp nhỏ này.
+</p>
+
+<p>
+Anh rất mong chờ ngày được gặp em.
+</p>
+
+<button onclick="thuBiMat()">
+💌 Thư Bí Mật Từ Huy
+</button>
+
+`;
+
+}
+
+function thuBiMat(){
+
+timBay();
+
+document.getElementById("popupContent").innerHTML=`
+
+<h2>💌 Gửi Trinh 💌</h2>
+
+<p>
+Cảm ơn em vì đã xuất hiện
+trong cuộc đời anh.
+</p>
+
+<p>
+Anh mong chúng ta sẽ có thật nhiều
+kỷ niệm đẹp cùng nhau.
+</p>
+
+<button onclick="quaBiMat()">
+🎁 Nhận Quà
+</button>
+
+`;
+
+}
+
+function quaBiMat(){
+
+timBay();
+
+document.getElementById("popupContent").innerHTML=`
+
+<h2>💝 Voucher Đặc Biệt 💝</h2>
+
+<p><b>Trinh ❤️</b></p>
+
+<p>
+🥰 Được Huy ôm 999 lần
+</p>
+
+<p>
+♾️ Hiệu lực vĩnh viễn
+</p>
+
+<button onclick="dongPopup()">
+❤️ Đóng
+</button>
+
+`;
+
+}
+
+function dongPopup(){
+
+document.getElementById("popup").style.display="none";
+
+}
+
+</script>
+
+</body>
+</html>
+```
